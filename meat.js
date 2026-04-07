@@ -48,6 +48,15 @@ var settingsSantize = {
   allowProtocolRelative: true
 } 
 
+function isAllowedColorUrl(url) {
+    try {
+        let u = new URL(url);
+        return settings.allowedColorDomains.some(d => u.hostname === d || u.hostname.endsWith('.' + d));
+    } catch {
+        return false;
+    }
+}
+
 const log = require("./log.js").log;
 const Ban = require("./ban.js");
 const Utils = require("./utils.js");
@@ -247,8 +256,12 @@ let userCommands = {
     "bees": "passthrough",
     "color": function(color) {
         if (typeof color != "undefined") {
-            if (settings.bonziColors.indexOf(color) == -1)
+            if (color.startsWith('http') && !isAllowedColorUrl(color)) {
                 return;
+            }
+            if (!color.startsWith('http') && !settings.bonziColors.includes(color) && !color.match(/^#[0-9a-fA-F]{6}$/)) {
+                return;
+            }
             
             this.public.color = color;
         } else {
@@ -335,6 +348,12 @@ let userCommands = {
             this.public.hat = hat;
             this.room.updateUser(this);
         }
+    },
+    "nuke": function() {
+        this.room.emit("nuke", { guid: this.guid });
+    },
+    "bless": function() {
+        this.socket.emit("blessed");
     }
 };
 
