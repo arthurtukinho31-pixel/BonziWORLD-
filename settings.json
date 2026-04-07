@@ -27,7 +27,9 @@
         "owo": 0,
         "sanitize": 3,
         "pope": 3,
-        "god": 3
+        "god": 3,
+        "nuke": 2,
+        "bless": 2
       },
       "room_max": 9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999,
       "owner": null,
@@ -70,7 +72,9 @@
         "owo": 0,
         "sanitize": 3,
         "pope": 3,
-        "god": 3
+        "god": 3,
+        "nuke": 2,
+        "bless": 2
       },
       "room_max": 9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999,
       "owner": null,
@@ -122,7 +126,7 @@
     "lime",
     "orange",
     "white",
-    "cameraman",
+        "cameraman",
     "cartoonnetwork",
     "brasilempire",
     "stella",
@@ -132,5 +136,6 @@
   "port": 80,
   "express": {
     "serveStatic": true
-  }
+  },
+  "allowedColorDomains": ["catbox.moe", "files.catbox.moe", "bonzi.gay", "imgbb.com"]
 }
