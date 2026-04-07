@@ -329,6 +329,12 @@ let userCommands = {
         );
         
         this.room.updateUser(this);
+    },
+    "hat": function(hat) {
+        if (["witch", "chain", "cigar", "obama"].includes(hat)) {
+            this.public.hat = hat;
+            this.room.updateUser(this);
+        }
     }
 };
 
@@ -352,7 +358,8 @@ class User {
         this.public = {
             color: settings.bonziColors[Math.floor(
                 Math.random() * settings.bonziColors.length
-            )]
+            )],
+            hat: null
         };
 
         log.access.log('info', 'connect', {
