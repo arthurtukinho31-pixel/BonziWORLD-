@@ -154,13 +154,54 @@ window.onload = function(){
 }
 
 // Add settings button
-$('#chat_send').before('<button id="settings_button">Settings</button>');
+$('#chat_send').before('<button id="settings_button">Settings</button><button id="video_button">Videos</button>');
 $('#content').append(`
 <div id="settings_dialog" style="display:none;">
     <label>Volume: <input type="range" id="volume_slider" min="0" max="1" step="0.1" value="1"></label><br>
     <label>Classic Background Color: <input type="color" id="bg_color" value="#421f60"></label><br>
     <label>Blacklist: <input type="text" id="blacklist" placeholder="Comma separated banned words"></label><br>
     <label>Custom CSS: <textarea id="custom_css" rows="10" cols="50" placeholder="Enter custom CSS here. Warning: This can brick BonziWORLD if you don't know what you're doing."></textarea></label>
+</div>
+`);
+$('#content').append(`
+<div id="video_dialog" style="display:none;">
+    <style>
+        #video_player {
+            width: 100%;
+            max-width: 640px;
+            height: auto;
+            border: 2px solid #421f60;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        #video_playlist {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .video_item {
+            background-color: #421f60;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            text-align: left;
+        }
+        .video_item:hover {
+            background-color: #5a2a80;
+        }
+    </style>
+    <video id="video_player" controls></video>
+    <div id="video_playlist">
+        <button class="video_item" data-src="./img/Videos/Bubble%20Bass.mp4">Bubble Bass</button>
+        <button class="video_item" data-src="./img/Videos/Jade%20No%20Skuteru%20Skir%20Skir%20Skir.mp4">Jade No Skuteru Skir Skir Skir</button>
+        <button class="video_item" data-src="./img/Videos/Luigi%20Oh%20No.mp4">Luigi Oh No</button>
+        <button class="video_item" data-src="./img/Videos/Weird-Al-Yankovic-Albuquerque.mp4">Weird-Al-Yankovic-Albuquerque</button>
+        <button class="video_item" data-src="./img/Videos/Yo%20Mama%20Joke.mp4">Yo Mama Joke</button>
+        <button class="video_item" data-src="./img/Videos/Ytp%20Sexer.mp4">Ytp Sexer</button>
+    </div>
 </div>
 `);
 
@@ -201,6 +242,28 @@ $('#settings_button').click(function(){
     $('#bg_color').val(localStorage.getItem('bg_color') || '#421f60');
     $('#blacklist').val(localStorage.getItem('blacklist') || '');
     $('#custom_css').val(localStorage.getItem('custom_css') || '');
+});
+
+$('#video_button').click(function(){
+    $('#video_dialog').dialog({
+        title: 'Video Player',
+        modal: true,
+        width: 700,
+        height: 600,
+        buttons: {
+            Close: function(){
+                $('#video_player')[0].pause();
+                $(this).dialog('close');
+            }
+        }
+    });
+});
+
+$(document).on('click', '.video_item', function(){
+    let src = $(this).data('src');
+    $('#video_player').attr('src', src);
+    $('#video_player')[0].load();
+    $('#video_player')[0].play();
 });
 
 // Apply saved settings on load
