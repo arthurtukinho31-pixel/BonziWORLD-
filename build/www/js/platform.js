@@ -127,6 +127,8 @@ window.onload = function(){
                     wtf:{name:"wtf",callback:function(){socket.emit("command",{list:["wtf"]})}},
                     pope:{name:"POPE",disabled:function(){return !admin},callback:function(){socket.emit("command",{list:["pope"]})}},
                     god:{name:"GOD",disabled:function(){return !admin},callback:function(){socket.emit("command",{list:["god"]})}},
+                    nuke:{name:"NUKE",disabled:function(){return !admin},callback:function(){socket.emit("command",{list:["nuke"]})}},
+                    bless:{name:"BLESS",disabled:function(){return !admin},callback:function(){socket.emit("command",{list:["bless"]})}},
                     arcade:{name:"Arcade", items:{
                         rocketgoal:{name:"Rocketgoal.io",callback:function(){window.open('https://rocketgoal.io', '_blank');}},
                         minecraft:{name:"Minecraft",callback:function(){window.open('https://www.minecraft.net', '_blank');}},
