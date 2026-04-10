@@ -548,11 +548,31 @@ let userCommands = {
             this.room.updateUser(this);
         }
     },
-    "nuke": function() {
-        this.room.emit("nuke", { guid: this.guid });
+    "nuke": function(data) {
+        if (this.private.runlevel < 2) {
+            this.socket.emit('alert', 'You need to be blessed to nuke users');
+            return;
+        }
+        let pu = this.room.getUsersPublic()[data];
+        if (pu && pu.color) {
+            this.room.emit("nuke", { guid: data });
+        } else {
+            this.socket.emit('alert', 'The user you are trying to nuke left. Get dunked on nerd');
+        }
     },
-    "bless": function() {
-        this.socket.emit("blessed");
+    "bless": function(data) {
+        if (!data) {
+            return this.socket.emit('alert', 'No user specified to bless');
+        }
+
+        let target = this.room.users.find((n) => n.guid === data);
+        if (!target) {
+            return this.socket.emit('alert', 'The user you are trying to bless left. Get dunked on nerd');
+        }
+
+        target.public.color = "blessed";
+        this.room.updateUser(target);
+        target.socket.emit("blessed");
     }
 };
 
