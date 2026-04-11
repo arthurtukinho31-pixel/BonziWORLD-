@@ -635,3 +635,64 @@ body.vaporwave #chat_send {
   text-decoration: underline; }
 
 /*# sourceMappingURL=style.min.css.map */
+
+
+
+.start-menu {
+  position: absolute;
+  bottom: 40px; /* above taskbar */
+  left: 4px;
+  width: 280px;
+  background: #c0c0c0;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  box-shadow: 2px 2px 0 #000000; /* subtle depth */
+  font-family: "MS Sans Serif", Arial, sans-serif;
+  font-size: 11px;
+  display: none;
+  z-index: 9999;
+  padding: 4px;
+}
+
+.start-menu-title {
+  background: linear-gradient(to right, #000080, #1084d0); /* classic blue gradient */
+  color: white;
+  padding: 4px 8px;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 #000080;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #ffffff;
+}
+
+.start-menu-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.start-menu-items li {
+  padding: 6px 30px 6px 36px; /* space for icon */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background: #c0c0c0;
+  border: 1px solid transparent;
+}
+
+.start-menu-items li:hover {
+  background: #000080;
+  color: white;
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+}
+
+/* Icon example (use emoji or small img) */
+.start-menu-items li::before {
+  content: "⚙️"; /* replace with actual icon */
+  margin-right: 8px;
+  width: 24px;
+}
