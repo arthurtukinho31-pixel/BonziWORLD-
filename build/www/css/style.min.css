@@ -635,3 +635,93 @@ body.vaporwave #chat_send {
   text-decoration: underline; }
 
 /*# sourceMappingURL=style.min.css.map */
+
+.start-menu {
+  position: absolute;
+  bottom: 48px;
+  left: 8px;
+  width: 260px;
+  background: #c0c0c0;
+  border: 2px solid #ffffff;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  box-shadow: 3px 3px 0 #000000;
+  font-family: "MS Sans Serif", Arial, sans-serif;
+  font-size: 13px;
+  z-index: 10000;
+  padding: 3px;
+  display: none;
+}
+
+.start-menu-title-bar {
+  background: linear-gradient(to right, #000080, #1084d0);
+  color: white;
+  padding: 3px 6px;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 #000;
+  margin-bottom: 4px;
+}
+
+.start-menu-items {
+  list-style: none;
+  margin: 0;
+  padding: 2px 0;
+}
+
+.start-menu-items li {
+  padding: 6px 8px 6px 36px;
+  cursor: default;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.start-menu-items li:hover {
+  background: #000080;
+  color: white;
+}
+
+.menu-icon {
+  position: absolute;
+  left: 10px;
+  font-size: 18px;
+}
+
+.blessed-tag {
+  font-size: 10px;
+  color: #ffff00;
+  margin-left: auto;
+}
+
+.start-menu-footer {
+  margin-top: 6px;
+  padding: 4px 8px;
+  background: #c0c0c0;
+  border-top: 1px solid #ffffff;
+  text-align: center;
+  font-size: 11px;
+  color: #000;
+}
+
+/* Retro Start Button */
+.retro-start-button {
+  background: #c0c0c0;
+  border-top: 2px solid #dfdfdf;
+  border-left: 2px solid #dfdfdf;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  padding: 4px 12px;
+  font-family: "MS Sans Serif", sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.retro-start-button:active {
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #dfdfdf;
+  border-bottom: 2px solid #dfdfdf;
+}
