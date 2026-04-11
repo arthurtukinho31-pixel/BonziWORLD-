@@ -56,6 +56,34 @@
 			</td>
 		</tr></table>
 
+		<!-- Retro Start Menu -->
+<div id="startMenu" class="start-menu" style="display: none;">
+  <div class="start-menu-title-bar">
+    <div class="start-menu-title">BonziWORLD</div>
+  </div>
+  
+  <ul class="start-menu-items">
+    <li onclick="openSettings()">
+      <span class="menu-icon">⚙️</span> Settings
+    </li>
+    <li onclick="openColorChanger()">
+      <span class="menu-icon">🎨</span> Color Changer
+    </li>
+    <li onclick="openPollCreator()" id="pollMenuItem" style="display: none;">
+      <span class="menu-icon">📊</span> Poll Creator <span class="blessed-tag">(Blessed Only)</span>
+    </li>
+  </ul>
+
+  <div class="start-menu-footer">
+    Shut Down BonziWORLD
+  </div>
+</div>
+
+<!-- Start Button (add this in your taskbar area if not already present) -->
+<button id="startButton" class="retro-start-button" onclick="toggleStartMenu()">
+  <span class="start-icon">🦍</span> Start
+</button>
+
 
 		<div id="page_login" class="page">
 			<div id="login_apps" class="app_showcase"></div>
@@ -67,7 +95,7 @@
 				<div id="login_error" style="display:none"></div>
 			</div>
 			<div id="login_load">loading</div>
-			<div id="login_version">Version 1.6.0 MODIFIED</div>
+			<div id="login_version">Version 1.0.0 BETA</div>
 		</div>
 
 		<div id="page_error" class="page" style="display:none">
